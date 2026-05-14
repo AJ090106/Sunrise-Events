@@ -43,7 +43,9 @@ const corsOptions = {
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 };
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: "https://your-vercel-app.vercel.app"
+}));
 
 
 
