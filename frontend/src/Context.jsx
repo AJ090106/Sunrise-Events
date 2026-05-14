@@ -4,7 +4,7 @@ import { Reducer } from "./Reducer";
 
 const AppContext = createContext();
 
-const url = "https://sunrise-events-wty9.onrender.com/services";
+const url = `${import.meta.env.VITE_API_URL}/services`;
 const initialState = {
   services: [],
   bookData: JSON.parse(localStorage.getItem("bookData")) || [],

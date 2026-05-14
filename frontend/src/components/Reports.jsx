@@ -40,13 +40,13 @@ function Reports() {
     const fetchData = async () => {
       try {
         const revenueRes = await axios.get(
-          "https://sunrise-events-wty9.onrender.com/dashboard/revenue-chart"
+          `${import.meta.env.VITE_API_URL}/dashboard/revenue-chart`
         );
         const appointmentRes = await axios.get(
-          "https://sunrise-events-wty9.onrender.com/dashboard/appointments-chart"
+          `${import.meta.env.VITE_API_URL}/dashboard/appointments-chart`
         );
         const customerRes = await axios.get(
-          "https://sunrise-events-wty9.onrender.com/dashboard/customers-chart"
+          `${import.meta.env.VITE_API_URL}/dashboard/customers-chart`
         );
 
         setDailyRevenue(revenueRes.data.daily || []);

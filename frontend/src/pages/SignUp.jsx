@@ -39,7 +39,7 @@ const Register = () => {
     setIsLoading(true);
     try {
       console.log("till frontend fine");
-      const response = await axios.post(`https://sunrise-events-wty9.onrender.com/api/auth/register`, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, {
         name: formData.name,
         email: formData.email,
         password: formData.password,

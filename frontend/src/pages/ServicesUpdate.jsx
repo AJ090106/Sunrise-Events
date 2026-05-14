@@ -37,8 +37,8 @@ function ServicesUpdate() {
 
   const handleSubmit = async () => {
     const API = isAddMode
-      ? "https://sunrise-events-wty9.onrender.com/services"
-      : `https://sunrise-events-wty9.onrender.com/services/${selectedService._id}`;
+      ? `${import.meta.env.VITE_API_URL}/services`
+      : `${import.meta.env.VITE_API_URL}/services/${selectedService._id}`;
     const method = isAddMode ? "post" : "put";
 
     try {
@@ -49,7 +49,7 @@ function ServicesUpdate() {
 
         // Fetch updated services list
         const updatedServices = await axios.get(
-          "https://sunrise-events-wty9.onrender.com/services"
+          `${import.meta.env.VITE_API_URL}/services`
         );
         dispatch({ type: "GET_SERVICES", payload: updatedServices.data });
       }
@@ -67,14 +67,14 @@ function ServicesUpdate() {
     if (window.confirm("Are you sure you want to delete this service?")) {
       try {
         console.log("i the try")
-        const response = await axios.delete(`https://sunrise-events-wty9.onrender.com/services/${id}`);
+        const response = await axios.delete(`${import.meta.env.VITE_API_URL}/services/${id}`);
         if (response.status === 200) {
           console.log("service deleted")
           alert("Service deleted successfully!");
 
           // Fetch updated services list
           const updatedServices = await axios.get(
-            "https://sunrise-events-wty9.onrender.com/services"
+            `${import.meta.env.VITE_API_URL}/services`
           );
           dispatch({ type: "GET_SERVICES", payload: updatedServices.data });
         }

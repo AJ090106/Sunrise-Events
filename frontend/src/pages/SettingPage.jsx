@@ -72,7 +72,7 @@ const Settingpage = () => {
       console.log("formData is:", formData);
       const token = localStorage.getItem("token");
       const response = await axios.put(
-        "http://localhost:5000/api/auth/user-update",
+        `${import.meta.env.VITE_API_URL}/api/auth/user-update`,
         formData,
         {
           headers: {
@@ -106,7 +106,7 @@ const Settingpage = () => {
       const token = localStorage.getItem("token"); // Get the token from localStorage
       console.log("token in the try is", token);
       const response = await axios.put(
-        "http://localhost:5000/api/auth/change-password",
+        `${import.meta.env.VITE_API_URL}/api/auth/change-password`,
         { currentPassword, newPassword },
         {
           headers: {

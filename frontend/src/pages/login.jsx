@@ -29,7 +29,7 @@ const Login = () => {
     setIsLoading(true);
     try {
       const { email, password, rememberMe } = formData;
-      const response = await axios.post(`https://sunrise-events-wty9.onrender.com/api/auth/login`, { email, password }, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, { email, password }, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
